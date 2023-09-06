@@ -2,6 +2,8 @@
 
 ## React ( CRA )구조
 ## 시작
+
+### `npm install or npm i`
 ### `npm start`
 
 
