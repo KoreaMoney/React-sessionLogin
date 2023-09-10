@@ -1,0 +1,20 @@
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.idPw {
+  display: flex;
+  background-color: beige;
+  width: 11rem;
+}
+.input {
+  width: 10.5rem;
+
+  height: 1rem;
+  margin-bottom: 10px;
+}
+.loginBtn {
+  width: 11rem;
+}
