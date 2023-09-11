@@ -9,7 +9,7 @@
 ## autor : Kim Dowon
 ## feature
 
-### ✅ sessiong storage login정보 담기
+### ✅ sessiong & local storage login정보 담기
 ### ✅ Admin과 client 구분하기
 ### ✅ 사용자 페이지 또는 관리자 페이지 이동 시 세션 만료데이터 다시 재 시작
 ### ✅ 30분간 사용하지 않을 경우 세션만료로 자동 로그아웃
