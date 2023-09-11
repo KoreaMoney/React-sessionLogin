@@ -13,6 +13,8 @@ const Login = () => {
   const [loginStatus, setLoginStatus] = useState("");
   const [sessionTimeout, setSessionTimeout] = useState(null);
 
+  const [localTimeout, setLocalTimeout] = useState(null);
+
   let navigate = useNavigate();
 
   // session 로그인 진행
@@ -26,14 +28,14 @@ const Login = () => {
 
     if (username === "admin" && password === "admin") {
       const timeoutTimestamp = Date.now() + 30 * 60 * 1000;
-      sessionStorage.setItem("admin", "true");
-      sessionStorage.setItem("timeoutTimestamp", timeoutTimestamp.toString());
+      localStorage.setItem("admin", "true");
+      localStorage.setItem("timeoutTimestamp", timeoutTimestamp.toString());
       setLoginStatus("관리자 입니다");
       navigate("/home");
     } else if (username === "client" && password === "client") {
       const timeoutTimestamp = Date.now() + 30 * 60 * 1000;
-      sessionStorage.setItem("client", "true");
-      sessionStorage.setItem("timeoutTimestamp", timeoutTimestamp.toString());
+      localStorage.setItem("client", "true");
+      localStorage.setItem("timeoutTimestamp", timeoutTimestamp.toString());
       setLoginStatus("사용자 입니다");
       navigate("/home");
     } else {
@@ -44,15 +46,19 @@ const Login = () => {
   };
   // session 만료
   const resetSessionTimeout = () => {
-    if (sessionTimeout) {
-      clearTimeout(sessionTimeout);
+    // if (sessionTimeout) {
+    //   clearTimeout(sessionTimeout);
+    // }
+    if (localTimeout) {
+      clearTimeout(localTimeout);
     }
     const timeoutId = setTimeout(() => {
       setLoginStatus("세션이 만료되었습니다. 다시 로그인하세요.");
-      sessionStorage.clear();
+      localStorage.clear();
       navigate("/");
     }, 30 * 60 * 1000); // 30 minutes
-    setSessionTimeout(timeoutId);
+    // setSessionTimeout(timeoutId);
+    setLocalTimeout(timeoutId);
   };
 
   // 다시 부르기
@@ -62,7 +68,7 @@ const Login = () => {
 
   return (
     <div className="login">
-      <h1>Session storage_Login</h1>
+      <h1>Session & Local storage_Login</h1>
       <form onSubmit={handleLogin}>
         <label htmlFor="username" className="idPw">
           ID

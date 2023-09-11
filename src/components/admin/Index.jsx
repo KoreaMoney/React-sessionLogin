@@ -9,9 +9,15 @@ import { useNavigate } from "react-router-dom";
 const Index = () => {
   const navigate = useNavigate();
 
+  // function handleMoveToHome() {
+  //   const timeoutTimestamp = Date.now() + 30 * 60 * 1000;
+  //   sessionStorage.setItem("timeoutTimestamp", timeoutTimestamp.toString());
+  //   navigate("/home");
+  // }
+
   function handleMoveToHome() {
     const timeoutTimestamp = Date.now() + 30 * 60 * 1000;
-    sessionStorage.setItem("timeoutTimestamp", timeoutTimestamp.toString());
+    localStorage.setItem("timeoutTimestamp", timeoutTimestamp.toString());
     navigate("/home");
   }
   return (
